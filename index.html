@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNS実験タイムライン</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #e6ecf0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 1em;
+    }
+
+    .post {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 1em;
+      margin-bottom: 1em;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .post:hover {
+      background-color: #f5f8fa;
+    }
+
+    .content {
+      margin-bottom: 0.8em;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 0.5em;
+    }
+
+    .buttons button {
+      padding: 0.3em 0.8em;
+      border: none;
+      border-radius: 9999px;
+      background-color: #1da1f2;
+      color: white;
+      font-size: 0.9em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="post" onclick="goToDetail('dummy1')">
+      <div class="content">これはダミー投稿①です。</div>
+      <div class="buttons">
+        <button>いいね</button>
+        <button>シェア</button>
+        <button>コメントしてシェア</button>
+      </div>
+    </div>
+
+    <div class="post" onclick="goToDetail('target')">
+      <div class="content"><strong>これは実験対象の投稿</strong>です。</div>
+      <div class="buttons">
+        <button>いいね</button>
+        <button>シェア</button>
+        <button>コメントしてシェア</button>
+      </div>
+    </div>
+
+    <div class="post" onclick="goToDetail('dummy2')">
+      <div class="content">これはダミー投稿②です。</div>
+      <div class="buttons">
+        <button>いいね</button>
+        <button>シェア</button>
+        <button>コメントしてシェア</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function goToDetail(postId) {
+      // 投稿IDをURLに付けて遷移（仮にGETパラメータで送る）
+      window.location.href = `detail.html?post=${postId}`;
+    }
+  </script>
+
+</body>
+</html>

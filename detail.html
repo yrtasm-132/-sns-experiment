@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>投稿詳細</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #e6ecf0;
+      margin: 0;
+      padding: 1em;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background-color: white;
+      padding: 1em;
+      border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .content {
+      margin-bottom: 1em;
+    }
+
+    .comments {
+      background-color: #f5f8fa;
+      padding: 0.5em;
+      border-radius: 8px;
+      font-size: 0.9em;
+      margin-bottom: 1em;
+    }
+
+    .input-area {
+      margin-top: 1em;
+    }
+
+    button {
+      margin-top: 0.5em;
+      padding: 0.5em 1em;
+      background-color: #1da1f2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content" id="post-content">
+      投稿内容を読み込み中…
+    </div>
+
+    <div class="comments" id="existing-comments">
+      コメントを読み込み中…
+    </div>
+
+    <div class="input-area">
+      <p><strong>あなたのコメント：</strong></p>
+      <form id="comment-form">
+        <label><input type="radio" name="comment" value="信じられない！"> 信じられない！</label><br>
+        <label><input type="radio" name="comment" value="これは許せない"> これは許せない</label><br>
+        <label><input type="radio" name="comment" value="複雑な気持ちになる"> 複雑な気持ちになる</label><br>
+        <label><input type="radio" name="comment" value="特に何も思わない"> 特に何も思わない</label><br>
+        <button type="submit">送信</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbzFa4N3O9UC8_fJsKIAn4Kzc2MxBDmaojw7ecTeEWYk_pJsWVjYWFTL3kITrnbRkXWHcQ/exec";
+
+    const params = new URLSearchParams(window.location.search);
+    const postId = params.get("post");
+
+    // 投稿内容とコメント一覧（仮）
+    const postContentMap = {
+      dummy1: "これはダミー投稿①の詳細内容です。",
+      target: "これは<strong>実験対象投稿</strong>の詳細内容です。加害者に関する情報が含まれます。",
+      dummy2: "これはダミー投稿②の詳細内容です。"
+    };
+
+    const commentMap = {
+      dummy1: ["ダミー1への反応その1", "ダミー1への反応その2"],
+      target: ["ひどすぎる", "もっと知りたい", "誰が悪いのか考えさせられる"],
+      dummy2: ["ダミー2のコメント1", "ダミー2のコメント2"]
+    };
+
+    document.getElementById("post-content").innerHTML = postContentMap[postId] || "投稿が見つかりません";
+    const commentList = commentMap[postId] || [];
+    document.getElementById("existing-comments").innerHTML = commentList.map(c => `<p>${c}</p>`).join("");
+
+   document.getElementById("comment-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const selected = document.querySelector('input[name="comment"]:checked');
+  if (!selected) {
+    alert("コメントを選んでください！");
+    return;
+  }
+
+  const comment = selected.value;
+  const participantId = localStorage.getItem("participant_id") || "unknown";
+  const action = "comment";
+  const postId = new URLSearchParams(window.location.search).get("post") || "unknown";
+
+  const params = new URLSearchParams();
+  params.append("participant_id", participantId);
+  params.append("post_id", postId);
+  params.append("action", action);
+  params.append("comment", comment);
+
+  fetch("https://script.google.com/macros/s/AKfycbyM4tbACSjjWj6_7KnUYAQOwfaN8bcVCG32JnrZof_eKLUmb1VMlDX2kjMBT3bwTY1CWg/exec", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: params
+  })
+  .then(res => res.text())
+  .then(text => {
+    alert("コメントを送信しました！");
+  })
+  .catch(err => {
+    alert("送信に失敗しました。");
+    console.error("送信エラー:", err);
+  });
+});
+  </script>
+</body>
+</html>

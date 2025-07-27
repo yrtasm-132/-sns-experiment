@@ -24,3 +24,32 @@ document.querySelectorAll('.like-button').forEach(button => {
     }
   });
 });
+
+function setupToggleButton(selector, actionName) {
+  document.querySelectorAll(selector).forEach(btn => {
+    const countSpan = btn.querySelector('.count');
+    const postId = btn.getAttribute('data-postid');
+    const originalCount = parseInt(countSpan.textContent);
+    let toggled = false;
+
+    btn.addEventListener('click', () => {
+      toggled = !toggled;
+
+      // 数値を更新
+      countSpan.textContent = toggled ? originalCount + 1 : originalCount;
+
+      // ログ記録（実際の保存はこの後拡張）
+      console.log({
+        postId,
+        action: actionName,
+        toggled: toggled,
+        finalCount: parseInt(countSpan.textContent)
+      });
+    });
+  });
+}
+
+// 実行
+setupToggleButton('.repost-btn', 'share');
+setupToggleButton('.like-btn', 'like');
+

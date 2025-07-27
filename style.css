@@ -9,39 +9,35 @@ h1 {
 }
 
 .post {
-  display: flex;
+  display: flex; /* ← 横並びにする！ */
   align-items: flex-start;
-  background: white;
+  background: #e6efff; /* ← 水色っぽい背景 */
   padding: 16px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* ふんわり影 */
 }
 
-.post img.icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* ← 丸くする！ */
   margin-right: 12px;
-  flex-shrink: 0;
 }
 
 .post-content {
-  flex-grow: 1;
+  flex: 1; /* ← 残りの幅を全部使うよ！ */
 }
 
 .message {
-  background: #dde8f8;
-  padding: 12px 16px;
-  border-radius: 10px;
-  margin-bottom: 8px;
+  margin-bottom: 10px; /* ← 下にスペース */
+  font-size: 16px;
 }
 
 .actions {
   display: flex;
-  gap: 16px;
-  font-size: 18px;
-  align-items: center;
+  gap: 12px; /* ← アイコンの間にスペース */
+  font-size: 16px;
   color: #333;
 }
 

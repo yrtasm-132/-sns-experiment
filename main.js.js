@@ -1,7 +1,7 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 const supabaseUrl = 'https://uqjtilpwdjoldseqtzsy.supabase.co';
-const supabaseKey = 'YOUR_SUPABASE_KEY'; // ← セキュアな管理推奨！
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxanRpbHB3ZGpvbGRzZXF0enN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMwNzc1NDcsImV4cCI6MjA2ODY1MzU0N30.39z4ok-86KdocgAgC7qYzLij4CWJFzCLGIPw7Co4y1Q'; // ← セキュアな管理推奨！
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // ※ 本番ではURLパラメータや別画面から取得したIDに置き換えてね！

@@ -1,13 +1,12 @@
 document.getElementById('login-form').addEventListener('submit', function (e) {
   e.preventDefault();
 
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
+  const student_number = document.getElementById('student_number').value;
 
+  // 学籍番号のバリデーション（AABAAAA：数字2 + 英大文字1 + 数字4）
+  const regex = /^[0-9]{2}[A-Z][0-9]{4}$/;
   // 仮ログインチェック（本番環境では削除・変更）
-  if (username === 'test' && password === 'pass') {
-    window.location.href = 'main.html'; // ← ✅ここが正しい
-  } else {
-    alert('ユーザー名またはパスワードが違います');
+   if (regex.test(studentNumber)) {
+    window.location.href = 'main.html';
   }
 });

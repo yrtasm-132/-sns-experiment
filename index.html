@@ -1,54 +1,20 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SNS実験ページ</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-</head>
-<body>
-  <h1>SNS実験投稿</h1>
+<!-- ダミー投稿① -->
+<div class="post">
+  <p>ダミー投稿①</p>
+  <button class="like-btn" data-postid="dummy1">👍 <span class="count">1</span></button>
+  <button class="repost-btn" data-postid="dummy1">🔁 <span class="count">1</span></button>
+</div>
 
-  <!-- ダミー投稿① -->
-  <div class="post">
-    <img src="avatar.png" alt="ユーザーアイコン" class="icon" />
-    <div class="post-content">
-      <div class="message">ダミー投稿①</div>
-      <div class="actions">
-        <span class="repost-btn" data-postid="post1">↪️ <span class="count">1</span></span>
-        <span class="like-btn" data-postid="post1">👍 <span class="count">1</span></span>
-        <span><i class="fas fa-comment"></i> 1</span>
-      </div>
-    </div>
-  </div>
+<!-- 実験対象投稿 -->
+<div class="post">
+  <p>実験対象投稿</p>
+  <button class="like-btn" data-postid="target">👍 <span class="count">2</span></button>
+  <button class="repost-btn" data-postid="target">🔁 <span class="count">2</span></button>
+</div>
 
-  <!-- 実験対象投稿（データ送信対象） -->
-  <div class="post">
-    <img src="avatar.png" alt="ユーザアイコン" class="icon" />
-    <div class="post-content">
-      <div class="message">実験対象投稿</div>
-      <div class="actions">
-        <button class="repost-btn" data-postid="target">↪️ <span class="count">2</span></button>
-        <button class="like-btn" data-postid="target">👍 <span class="count">2</span></button>
-        <span><i class="fas fa-comment"></i> 1</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ダミー投稿② -->
-  <div class="post">
-    <img src="avatar.png" alt="ユーザーアイコン" class="icon" />
-    <div class="post-content">
-      <div class="message">ダミー投稿②</div>
-      <div class="actions">
-        <span class="repost-btn" data-postid="post1">↪️ <span class="count">1</span></span>
-        <span class="like-btn" data-postid="post1">👍 <span class="count">1</span></span>
-        <span><i class="fas fa-comment"></i> 1</span>
-      </div>
-    </div>
-  </div>
-
-  <script type="module" src="main.js"></script>
-</body>
-</html>
+<!-- ダミー投稿② -->
+<div class="post">
+  <p>ダミー投稿②</p>
+  <button class="like-btn" data-postid="dummy2">👍 <span class="count">1</span></button>
+  <button class="repost-btn" data-postid="dummy2">🔁 <span class="count">1</span></button>
+</div>

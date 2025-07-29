@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNS実験ページ</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <h1>SNS実験投稿</h1>
+
+  <!-- ダミー投稿① -->
+  <div class="post" data-postid="dummy1">
+    <img src="dummy1_icon.png" alt="ユーザーアイコン" class="icon" />
+    <div class="post-content">
+      <div class="message">ダミー投稿①</div>
+      <div class="actions">
+        <button class="like-btn"><i class="fas fa-thumbs-up"></i> <span class="count">1</span></button>
+        <button class="share-btn"><i class="fas fa-retweet"></i> <span class="count">1</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 実験対象投稿 -->
+  <div class="post" data-postid="target">
+    <img src="target_icon.png" alt="ユーザーアイコン" class="icon" />
+    <div class="post-content">
+      <div class="message">実験対象投稿</div>
+      <div class="actions">
+        <button class="like-btn"><i class="fas fa-thumbs-up"></i> <span class="count">2</span></button>
+        <button class="share-btn"><i class="fas fa-retweet"></i> <span class="count">2</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ダミー投稿② -->
+  <div class="post" data-postid="dummy2">
+    <img src="dummy2_icon.png" alt="ユーザーアイコン" class="icon" />
+    <div class="post-content">
+      <div class="message">ダミー投稿②</div>
+      <div class="actions">
+        <button class="like-btn"><i class="fas fa-thumbs-up"></i> <span class="count">1</span></button>
+        <button class="share-btn"><i class="fas fa-retweet"></i> <span class="count">1</span></button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

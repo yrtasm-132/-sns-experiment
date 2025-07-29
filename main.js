@@ -1,14 +1,10 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-// Supabase設定
 const supabaseUrl = 'https://uqjtilpwdjoldseqtzsy.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxanRpbHB3ZGpvbGRzZXF0enN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMwNzc1NDcsImV4cCI6MjA2ODY1MzU0N30.39z4ok-86KdocgAgC7qYzLij4CWJFzCLGIPw7Co4y1Q';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// 仮の参加者ID（本番では入力ページから受け取る）
 const participantId = 'test_user_001';
-
-// 投稿ごとの操作状態を保存
 const postStates = {};
 
 function setupToggleButton(selector, actionName) {
@@ -17,7 +13,7 @@ function setupToggleButton(selector, actionName) {
     const postId = btn.getAttribute('data-postid');
     const originalCount = parseInt(countSpan.textContent);
 
-    // 初期化（投稿単位）
+    // 初期化
     if (!postStates[postId]) {
       postStates[postId] = {
         share: { toggled: false, count: originalCount },
@@ -26,14 +22,11 @@ function setupToggleButton(selector, actionName) {
     }
 
     btn.addEventListener('click', async () => {
-      const current = postStates[postId][actionName];
-      current.toggled = !current.toggled;
-      current.count = current.toggled ? current.count + 1 : current.count - 1;
+      const state = postStates[postId][actionName];
+      state.toggled = !state.toggled;
+      state.count = state.toggled ? originalCount + 1 : originalCount;
+      countSpan.textContent = state.count;
 
-      // 表示更新
-      countSpan.textContent = current.count;
-
-      // 実験対象（postId === 'target'）のみ記録
       if (postId === 'target') {
         const record = {
           participant_id: participantId,
@@ -59,6 +52,5 @@ function setupToggleButton(selector, actionName) {
   });
 }
 
-// 実行
 setupToggleButton('.repost-btn', 'share');
 setupToggleButton('.like-btn', 'like');

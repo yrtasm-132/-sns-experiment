@@ -1,56 +1,43 @@
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+import { createClient } from "https://esm.sh/@supabase/supabase-js";
 
-const supabaseUrl = 'https://uqjtilpwdjoldseqtzsy.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxanRpbHB3ZGpvbGRzZXF0enN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMwNzc1NDcsImV4cCI6MjA2ODY1MzU0N30.39z4ok-86KdocgAgC7qYzLij4CWJFzCLGIPw7Co4y1Q';
+const supabaseUrl = "https://yrtasm-132.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxanRpbHB3ZGpvbGRzZXF0enN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMwNzc1NDcsImV4cCI6MjA2ODY1MzU0N30.39z4ok-86KdocgAgC7qYzLij4CWJFzCLGIPw7Co4y1Q"; // ← 本番用に置き換えてください
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const participantId = 'test_user_001';
-const postStates = {};
+const participantId = "test_user_001"; // 必要ならユーザー入力に置き換え可能
 
-function setupToggleButton(selector, actionName) {
-  document.querySelectorAll(selector).forEach(btn => {
-    const countSpan = btn.querySelector('.count');
-    const postId = btn.getAttribute('data-postid');
-    const originalCount = parseInt(countSpan.textContent);
+document.querySelectorAll(".repost-btn, .like-btn").forEach(button => {
+  button.addEventListener("click", async () => {
+    const postId = button.dataset.postid;
+    const action = button.classList.contains("repost-btn") ? "share" : "like";
+    const isTarget = postId === "target";
 
-    // 初期化
-    if (!postStates[postId]) {
-      postStates[postId] = {
-        share: { toggled: false, count: originalCount },
-        like: { toggled: false, count: originalCount }
-      };
-    }
+    const countSpan = button.querySelector(".count");
+    let count = parseInt(countSpan.textContent, 10);
+    const toggled = !button.classList.contains("active");
 
-    btn.addEventListener('click', async () => {
-      const state = postStates[postId][actionName];
-      state.toggled = !state.toggled;
-      state.count = state.toggled ? originalCount + 1 : originalCount;
-      countSpan.textContent = state.count;
+    // 表示切替
+    button.classList.toggle("active", toggled);
+    count = toggled ? count + 1 : count - 1;
+    countSpan.textContent = count;
 
-      if (postId === 'target') {
-        const record = {
-          participant_id: participantId,
-          post_id: postId,
-          action_share: postStates[postId].share.toggled,
-          action_like: postStates[postId].like.toggled,
-          state_share: postStates[postId].share.toggled ? 'on' : 'off',
-          state_like: postStates[postId].like.toggled ? 'on' : 'off',
-          count_share: postStates[postId].share.count,
-          count_like: postStates[postId].like.count
-        };
+    console.log({ postId, action, toggled, finalCount: count });
 
-        const { error } = await supabase.from('response').insert([record]);
+    // Supabaseへ送信（実験対象投稿のみ）
+    if (isTarget) {
+      const response = await supabase.from("response").insert([{
+        timestamp: new Date().toISOString(),
+        participant_id: participantId,
+        post_id: postId,
+        [`action_${action}`]: toggled,
+        [`state_${action}`]: count
+      }]);
 
-        if (error) {
-          console.error('送信エラー:', error);
-          alert('データの送信に失敗しました。');
-        } else {
-          console.log('送信完了:', record);
-        }
+      if (response.error) {
+        console.error("Supabaseへの送信エラー:", response.error);
+      } else {
+        console.log("Supabaseに記録成功");
       }
-    });
+    }
   });
-}
-
-setupToggleButton('.repost-btn', 'share');
-setupToggleButton('.like-btn', 'like');
+});

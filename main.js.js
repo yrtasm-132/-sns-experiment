@@ -1,20 +1,10 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 const supabaseUrl = 'https://uqjtilpwdjoldseqtzsy.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxanRpbHB3ZGpvbGRzZXF0enN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMwNzc1NDcsImV4cCI6MjA2ODY1MzU0N30.39z4ok-86KdocgAgC7qYzLij4CWJFzCLGIPw7Co4y1Q'; // ← セキュアな管理推奨！
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxanRpbHB3ZGpvbGRzZXF0enN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMwNzc1NDcsImV4cCI6MjA2ODY1MzU0N30.39z4ok-86KdocgAgC7qYzLij4CWJFzCLGIPw7Co4y1Q';  
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// ※ 本番ではURLパラメータや別画面から取得したIDに置き換えてね！
 const participantId = 'test_user_001';
-
-// 状態管理
-let shareToggled = false;
-let likeToggled = false;
-let originalShareCount = 1;
-let originalLikeCount = 1;
-
-// 対象投稿ID（index.htmlの中でこのpostだけdata-postid="target"にしてある前提）
-const TARGET_POST_ID = 'target';
 
 function setupToggleButton(selector, actionName) {
   document.querySelectorAll(selector).forEach(btn => {
@@ -23,39 +13,30 @@ function setupToggleButton(selector, actionName) {
     const originalCount = parseInt(countSpan.textContent);
     let toggled = false;
 
-    // 初期カウント保存（実験対象のみ）
-    if (postId === TARGET_POST_ID) {
-      if (actionName === 'share') originalShareCount = originalCount;
-      if (actionName === 'like') originalLikeCount = originalCount;
-    }
-
     btn.addEventListener('click', async () => {
       toggled = !toggled;
       const newCount = toggled ? originalCount + 1 : originalCount;
       countSpan.textContent = newCount;
 
-      // 状態記録（実験対象のみ）
-      if (postId === TARGET_POST_ID) {
-        if (actionName === 'share') shareToggled = toggled;
-        if (actionName === 'like') likeToggled = toggled;
-
-        // Supabaseへ送信（どちらのボタンでも両方の状態を送る）
-        const { error } = await supabase.from('response').insert([{
+      // 実験対象投稿（postId === 'target'）のみ記録
+      if (postId === 'target') {
+        const data = {
           participant_id: participantId,
-          post_id: TARGET_POST_ID,
-          action_share: actionName === 'share' ? true : null,
-          action_like: actionName === 'like' ? true : null,
-          state_share: shareToggled,
-          state_like: likeToggled,
-          count_share: shareToggled ? originalShareCount + 1 : originalShareCount,
-          count_like: likeToggled ? originalLikeCount + 1 : originalLikeCount,
-        }]);
+          post_id: postId,
+        };
+
+        // アクション名ごとに動的にカラム名を作る
+        data[`action_${actionName}`] = 1;
+        data[`state_${actionName}`] = toggled ? 1 : 0;
+        data[`count_${actionName}`] = newCount;
+
+        const { error } = await supabase.from('response').insert([data]);
 
         if (error) {
-          alert('記録失敗！');
+          alert('送信エラーが発生しました');
           console.error(error);
         } else {
-          console.log(`記録成功: ${actionName}`);
+          console.log(`記録：${actionName}`, data);
         }
       }
     });

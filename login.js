@@ -6,7 +6,7 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
 
   // 仮ログインチェック（本番環境では削除・変更）
   if (username === 'test' && password === 'pass') {
-    window.location.href = 'index.html';
+    window.location.href = 'main.html'; // ← ✅ここが正しい
   } else {
     alert('ユーザー名またはパスワードが違います');
   }

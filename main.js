@@ -7,8 +7,9 @@ const supabaseKey =
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// ✅ このIDを参加者の入力フォームや認証などから取得する仕様に変えるのが理想
-const participantId = "test_user_001";
+// ✅ URLパラメータから学籍番号を取得
+const params = new URLSearchParams(window.location.search);
+const participantId = params.get("id");
 
 document.querySelectorAll(".like-btn, .repost-btn").forEach((btn) => {
   btn.addEventListener("click", async () => {
@@ -22,7 +23,7 @@ document.querySelectorAll(".like-btn, .repost-btn").forEach((btn) => {
     countSpan.textContent = count;
 
     // 🎯 実験対象投稿だけ記録
-    if (postId === "target") {
+    if (postId === "target" && participantId) {
       const payload = {
         timestamp: new Date().toISOString(),
         participant_id: participantId,

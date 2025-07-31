@@ -1,14 +1,5 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #f3f9ff, #f7f0ff); /* バブル感グラデ */
-  margin: 0;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 30px;
+  background: linear-gradient(135deg, #f3f9ff, #f7f0ff);
 }
 
 .post-list {
@@ -17,71 +8,42 @@ h1 {
 }
 
 .post {
-  display: flex;
-  align-items: flex-start;
   background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 16px;
-  margin-bottom: 20px;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
 }
 
-.post:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-}
-
-.post.target-post {
-  background-color: rgba(255, 245, 230, 0.7);
-  border-left: 6px solid #f5b041;
-}
-
-.icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  margin-right: 12px;
-  flex-shrink: 0;
-}
-
-.post-content {
-  flex: 1;
+.target-post {
+  border-left: 6px solid #f39c12;
+  background-color: rgba(255, 250, 220, 0.6);
 }
 
 .message {
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 12px 16px;
+  padding: 10px 14px;
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 12px;
-  font-size: 15px;
-  line-height: 1.6;
   margin-bottom: 10px;
-  word-break: break-word;
-  backdrop-filter: blur(4px);
 }
 
 .actions {
   display: flex;
-  gap: 20px;
+  gap: 14px;
+  margin-top: 8px;
 }
 
 .actions button {
-  background: none;
-  border: none;
-  color: #666;
-  font-size: 16px;
   display: flex;
   align-items: center;
   gap: 6px;
-  cursor: pointer;
-  transition: color 0.2s ease, transform 0.2s ease;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: transform 0.2s ease;
 }
 
 .actions button:hover {
-  color: #1da1f2;
   transform: scale(1.05);
 }
 
@@ -97,4 +59,11 @@ h1 {
   color: #9b59b6;
 }
 
-@media screen and (max-widt
+@media screen and (max-width: 768px) {
+  .post {
+    padding: 14px;
+  }
+  .message {
+    font-size: 14px;
+  }
+}

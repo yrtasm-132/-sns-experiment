@@ -27,6 +27,11 @@ body {
   transform: translateY(-4px);
 }
 
+a.post {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* === 実験対象投稿 === */
 .target-post {
   border-left: 6px solid #f39c12;

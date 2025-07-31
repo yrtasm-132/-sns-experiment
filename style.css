@@ -1,3 +1,4 @@
+/* ====== 共通 ====== */
 /* === ヘッダー === */
 .fixed-header {
   position: fixed;
@@ -19,11 +20,6 @@
   letter-spacing: 1px;
 }
 
-/* 投稿全体を少し下げる */
-.post-list {
-  margin-top: 3.5em;
-}
-
 /* === 背景と全体設定 === */
 body {
   background: linear-gradient(135deg, #f0f4ff, #fef6ff);
@@ -35,6 +31,7 @@ body {
 .post-list {
   max-width: 600px;
   margin: 0 auto;
+  margin-top: 3.5em;
   padding: 1rem;
 }
 
@@ -63,12 +60,6 @@ a:active,
 a:focus-visible {
   outline: none !important;
   box-shadow: none !important;
-}
-
-/* === 実験対象投稿 === */
-.target-post {
-  border-left: 6px solid #f39c12;
-  background-color: rgba(255, 250, 220, 0.6);
 }
 
 /* === 投稿本文 === */
@@ -140,7 +131,7 @@ a:focus-visible {
   }
 }
 
-
+/* === 投稿画像 === */
 .post-image-container {
   margin-top: 12px;
   display: flex;
@@ -157,15 +148,21 @@ a:focus-visible {
   object-fit: cover;
 }
 
-/* 画像2枚用：横並び */
-.post-image-container.double {
-  display: flex;  /* ←これ追加！ */
-}
-
 .post-image-container.double img {
   width: calc(50% - 4px);
   border-radius: 12px;
   object-fit: cover;
+  display: flex;
+}
+
+
+/* ====== 投稿詳細ページ ====== */
+/* === 投稿 === */
+.post-detail {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 3.5em;
+  padding: 1rem;
 }
 
 /* === コメント一覧 === */
@@ -241,8 +238,4 @@ a:focus-visible {
   font-size: 1rem;
   margin-bottom: 4px;
   color: #222;
-}
-
-.media-content {
-  padding-left: 4px;
 }

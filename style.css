@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #f0f4f8;
+  background: linear-gradient(135deg, #f3f9ff, #f7f0ff); /* バブル感グラデ */
   margin: 0;
   padding: 20px;
 }
@@ -19,20 +19,24 @@ h1 {
 .post {
   display: flex;
   align-items: flex-start;
-  background: #e6efff;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 16px;
   margin-bottom: 20px;
   border-radius: 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .post:hover {
   transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 .post.target-post {
-  background-color: #fffbe6;
+  background-color: rgba(255, 245, 230, 0.7);
   border-left: 6px solid #f5b041;
 }
 
@@ -49,13 +53,14 @@ h1 {
 }
 
 .message {
-  background-color: #fafdff;
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 12px 16px;
   border-radius: 12px;
   font-size: 15px;
   line-height: 1.6;
   margin-bottom: 10px;
   word-break: break-word;
+  backdrop-filter: blur(4px);
 }
 
 .actions {
@@ -72,27 +77,24 @@ h1 {
   align-items: center;
   gap: 6px;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .actions button:hover {
   color: #1da1f2;
+  transform: scale(1.05);
 }
 
-.actions button.active {
+.actions .like-btn.active {
   color: #1da1f2;
 }
 
-@media screen and (max-width: 640px) {
-  body {
-    padding: 12px;
-  }
-
-  .post {
-    padding: 12px;
-  }
-
-  .message {
-    font-size: 14px;
-  }
+.actions .share-btn.active {
+  color: #2ecc71;
 }
+
+.actions .comment-btn.active {
+  color: #9b59b6;
+}
+
+@media screen and (max-widt

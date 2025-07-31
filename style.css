@@ -124,10 +124,16 @@ a:focus-visible {
   overflow: hidden;
 }
 
+/* 画像1枚用 */
 .post-image-container.single img {
   width: 100%;
   border-radius: 12px;
   object-fit: cover;
+}
+
+/* 画像2枚用：横並び */
+.post-image-container.double {
+  display: flex;  /* ←これ追加！ */
 }
 
 .post-image-container.double img {
@@ -135,3 +141,4 @@ a:focus-visible {
   border-radius: 12px;
   object-fit: cover;
 }
+

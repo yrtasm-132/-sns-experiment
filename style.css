@@ -235,3 +235,14 @@ a:focus-visible {
   color: #1da1f2;
 }
 
+/* ユーザー名の表示 */
+.username {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: #222;
+}
+
+.media-content {
+  padding-left: 4px;
+}

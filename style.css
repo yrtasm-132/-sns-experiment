@@ -1,36 +1,54 @@
+/* === 背景と全体設定 === */
 body {
-  background: linear-gradient(135deg, #f3f9ff, #f7f0ff);
+  background: linear-gradient(135deg, #f0f4ff, #fef6ff);
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #333;
 }
 
+/* === 投稿リストの中央寄せ＆最大幅 === */
 .post-list {
   max-width: 600px;
   margin: 0 auto;
+  padding: 1rem;
 }
 
+/* === 投稿カード === */
 .post {
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(12px);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
-  margin-bottom: 20px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
 }
 
+.post:hover {
+  transform: translateY(-4px);
+}
+
+/* === 実験対象投稿 === */
 .target-post {
   border-left: 6px solid #f39c12;
   background-color: rgba(255, 250, 220, 0.6);
 }
 
+/* === 投稿本文 === */
 .message {
   padding: 10px 14px;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.55);
   border-radius: 12px;
   margin-bottom: 10px;
+  line-height: 1.8;
+  white-space: normal;
+  word-break: break-word;
 }
 
+/* === アクションボタン群 === */
 .actions {
   display: flex;
-  gap: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
   margin-top: 8px;
 }
 
@@ -38,32 +56,48 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: transform 0.2s ease;
+  font-size: 0.95rem;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s, transform 0.2s;
 }
 
 .actions button:hover {
   transform: scale(1.05);
 }
 
-.actions .like-btn.active {
+/* === トグル時の色変化 === */
+.like-btn.active {
   color: #1da1f2;
 }
 
-.actions .share-btn.active {
+.share-btn.active {
   color: #2ecc71;
 }
 
-.actions .comment-btn.active {
+.comment-btn.active {
   color: #9b59b6;
 }
 
+/* === ボタンのアイコン付き数字 === */
+.count {
+  font-weight: bold;
+}
+
+/* === モバイル対応 === */
 @media screen and (max-width: 768px) {
-  .post {
-    padding: 14px;
-  }
   .message {
     font-size: 14px;
+  }
+
+  .actions {
+    gap: 8px;
+  }
+
+  .actions button {
+    font-size: 0.85rem;
+    padding: 4px 8px;
   }
 }

@@ -18,31 +18,45 @@
   </a>
 </div>
 
-  <div class="container">
-    <div class="post">
-      <div class="time">2025年7月31日 10:00</div>
-      <p>
-        ＼本日のやぎニュース🐐☀️／
-屋根の上でお昼寝前のパトロール中？高いところが大好きな2頭、今日も元気いっぱいです！🌿
-青空に映えるこの姿、見てるだけで癒されますね。
-ご来場の際は、ぜひ上も見上げてみてください👀✨ #牧場の暮らし #やぎのいる生活 #空とやぎ
+<!-- 投稿カード①（修正版） -->
+<div class="box post" data-postid="dummy1">
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-48x48">
+        <img alt="アイコン" class="is-rounded" src="dummy1_icon.png" />
       </p>
-    </div>
+    </figure>
 
-    <div class="comment">
-      <div class="user">Aさん</div>
-      <div class="text">かわいすぎる♡</div>
-    </div>
-    <div class="comment">
-      <div class="user">Bさん</div>
-      <div class="text">癒やされます！</div>
-    </div>
-    <div class="comment">
-      <div class="user">Cさん</div>
-      <div class="text">名前はなんていうんですか？会いに行きたい！次の週末行こうかな…！</div>
-    </div>
-  </div>
+    <div class="media-content">
+      <!-- 投稿本文＋画像全体をリンクにする -->
+      <p class="username">ひかりの丘牧場</p>
+      <a href="dummy1_post.html" class="post-link">
+        <div class="content message">
+          ＼本日のやぎニュース🐐☀️／
+          屋根の上でお昼寝前のパトロール中？高いところが大好きな2頭、今日も元気いっぱいです！🌿
+          青空に映えるこの姿、見てるだけで癒されますね。
+          ご来場の際は、ぜひ上も見上げてみてください👀✨ #牧場の暮らし #やぎのいる生活 #空とやぎ
+        </div>
+        <div class="post-image-container single">
+          <img alt="投稿画像" src="dummy1_image.jpg" />
+        </div>
+      </a>
 
+      <!-- アクションボタンはリンクの外に出す -->
+      <div class="actions">
+        <button class="like-btn button is-light">
+          <i class="fas fa-thumbs-up"></i><span class="count">2521</span>
+        </button>
+        <button class="share-btn button is-light">
+          <i class="fas fa-retweet"></i><span class="count">4810</span>
+        </button>
+        <button class="comment-btn button is-light">
+          <i class="fas fa-comment"></i><span class="count">7</span>
+        </button>
+      </div>
+    </div>
+  </article>
+</div>
   <div class="fixed-input">
     <input type="text" placeholder="コメントを入力..." />
     <button>投稿</button>

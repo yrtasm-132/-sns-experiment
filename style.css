@@ -1,3 +1,29 @@
+/* === ヘッダー === */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+  text-align: center;
+  padding: 0.5em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-title {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #444;
+  letter-spacing: 1px;
+}
+
+/* 投稿全体を少し下げる */
+.post-list {
+  margin-top: 3.5em;
+}
+
 /* === 背景と全体設定 === */
 body {
   background: linear-gradient(135deg, #f0f4ff, #fef6ff);
@@ -140,5 +166,72 @@ a:focus-visible {
   width: calc(50% - 4px);
   border-radius: 12px;
   object-fit: cover;
+}
+
+/* === コメント一覧 === */
+.comment {
+  background-color: #ffffff;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.comment .user {
+  font-weight: bold;
+}
+
+/* === 入力欄（下部固定） === */
+.fixed-input {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #ccc;
+  padding: 8px;
+  display: flex;
+  z-index: 1000;
+}
+
+.fixed-input input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.fixed-input button {
+  margin-left: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.fixed-input button:hover {
+  background-color: #0d8de1;
+}
+
+/* === 戻るボタン === */
+.back-button {
+  padding: 12px 16px;
+  background-color: transparent;
+}
+
+.back-button a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-button a:hover {
+  color: #1da1f2;
 }
 

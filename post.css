@@ -171,12 +171,11 @@ body {
     font-size: 1.2rem;
     white-space: nowrap; /* 折り返し禁止 */
   }
-
   .back-button {
     flex-shrink: 0;
     white-space: nowrap;
   }
-}
+
   .post-detail {
     max-width: 100%;
     margin: 0;
@@ -191,3 +190,4 @@ body {
     font-size: 0.85rem;
     padding: 4px 8px;
   }
+}

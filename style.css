@@ -150,11 +150,12 @@ a:focus-visible {
 @media screen and (max-width: 768px) {
   .post-list {
     max-width: 100%;
-    padding: 1rem 0.5rem;
+    padding: 0.5rem 0.5rem;
   }
-  
+
   .message {
     font-size: 14px;
+    color: #222; 
   }
 
   .actions {

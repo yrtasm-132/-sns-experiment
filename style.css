@@ -175,6 +175,8 @@ a:focus-visible {
 
   .message {
     font-size: 14px;
+    padding: 8rem 5rem !important; 
+    border-radius: 8px;
     color: #222; 
   }
 

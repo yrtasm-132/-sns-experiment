@@ -40,7 +40,7 @@ document.querySelectorAll('.like-btn').forEach((btn) => {
     let count = parseInt(countEl.textContent, 10);
 
     const isActive = btn.classList.toggle('active');
-
+    
     // 数字を増減
     countEl.textContent = isActive ? count + 1 : count - 1;
 

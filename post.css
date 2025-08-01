@@ -92,6 +92,17 @@ body {
   font-size: 12px;
 }
 
+/* === 投稿本文 === */
+.message {
+  padding: 10px 14px;
+  background-color: rgba(255, 255, 255, 0.55);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  line-height: 1.8;
+  white-space: normal;
+  word-break: break-word;
+}
+
 /* 画像1枚用 */
 .post-image-container.single img {
   width: 100%;
@@ -184,6 +195,13 @@ html {
     max-width: 100%;
     margin-top: 3.5em;
     padding: 1rem;
+  }
+
+    .message {
+    font-size: 14px;
+    padding: 0.75rem 0.5rem !important; 
+    border-radius: 8px;
+    color: #222; 
   }
 
   .actions {

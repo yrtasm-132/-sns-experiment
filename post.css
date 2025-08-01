@@ -160,6 +160,10 @@ body {
 }
 
 /* === モバイル対応 === */
+html {
+  background: linear-gradient(135deg, #f0f4ff, #fef6ff);
+}
+
 @media screen and (max-width: 768px) {
    .fixed-header {
     flex-wrap: nowrap;

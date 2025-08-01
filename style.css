@@ -99,15 +99,11 @@ a:focus-visible {
 
 /* === トグル時の色変化 === */
 .like-btn.active {
-  color: #1da1f2;
+  color: orange;
 }
 
 .share-btn.active {
   color: hotpink;
-}
-
-.comment-btn.active {
-  color: #9b59b6;
 }
 
 /* === ボタンのアイコン付き数字 === */

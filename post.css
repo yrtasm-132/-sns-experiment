@@ -217,11 +217,12 @@ html {
     flex-shrink: 0;
     white-space: nowrap;
   }
-
+  
   .post-detail {
     max-width: 100%;
     margin-top: 3.5em;
     padding: 1rem;
+    padding-bottom: 8rem; 
   }
 
     .message {
@@ -238,9 +239,5 @@ html {
   .actions button {
     font-size: 0.85rem;
     padding: 4px 8px;
-  }
-
-  .comment:last-child {
-    margin-bottom: 120px;
   }
 }

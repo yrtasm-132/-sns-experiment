@@ -149,23 +149,22 @@ a:focus-visible {
 /* === モバイル対応 === */
 @media screen and (max-width: 768px) {
    .container {
-    max-width: 100%;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    max-width: 100% !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
 
   .post-list {
-    max-width: 100%;
-    padding: 0.5rem 0.5rem;
+    max-width: 100% !important;
+    padding: 0.5rem 0.5rem !important;
   }
 
   .post {
-    padding: 0.5rem;
+    padding: 0.5rem !important;
   }
 
   .box {
-    padding: 0.5rem;        /* Bulmaのpaddingが効いてるため、少し減らす */
-    box-shadow: none;       /* ついでに影も調整可（お好みで） */
+    padding: 0.5rem !important;       /* Bulmaのpaddingが効いてるため、少し減らす */
     border-radius: 12px;    /* 角丸は残してOK */
   }
 

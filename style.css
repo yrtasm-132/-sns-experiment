@@ -156,6 +156,13 @@ a:focus-visible {
   .post {
     padding: 0.5rem;
   }
+
+  .box {
+    padding: 0.5rem;        /* Bulmaのpaddingが効いてるため、少し減らす */
+    box-shadow: none;       /* ついでに影も調整可（お好みで） */
+    border-radius: 12px;    /* 角丸は残してOK */
+  }
+
   .message {
     font-size: 14px;
     color: #222; 

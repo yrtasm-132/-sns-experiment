@@ -17,7 +17,9 @@
   <div class="header-row">
     <div class="left">
       <!-- 戻るボタン -->
-      <a href="main.html" class="back-link">← 戻る</a>
+       <a href="main.html" class="back-link" aria-label="戻る">
+        <i class="fas fa-arrow-left"></i>
+      </a>
     </div>
     <div class="center">
       <h1 class="timeline-title">Time Line</h1>
@@ -51,11 +53,11 @@
 
       <!-- アクションボタンはリンクの外に出す -->
       <div class="actions">
-        <button class="like-btn button is-light">
-          <i class="fas fa-thumbs-up"></i><span class="count">2521</span>
-        </button>
         <button class="share-btn button is-light">
           <i class="fas fa-retweet"></i><span class="count">4810</span>
+        </button>
+        <button class="like-btn button is-light">
+          <i class="fas fa-thumbs-up"></i><span class="count">2521</span>
         </button>
         <button class="comment-btn button is-light">
           <i class="fas fa-comment"></i><span class="count">7</span>

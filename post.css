@@ -161,8 +161,26 @@ body {
 
 /* === モバイル対応 === */
 @media screen and (max-width: 768px) {
-  .message {
-    font-size: 14px;
+   .fixed-header {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .timeline-title {
+    font-size: 1.2rem;
+    white-space: nowrap; /* 折り返し禁止 */
+  }
+
+  .back-button {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+  .post-detail {
+    max-width: 100%;
+    margin: 0;
+    padding: 1rem;
   }
 
   .actions {
@@ -173,4 +191,3 @@ body {
     font-size: 0.85rem;
     padding: 4px 8px;
   }
-}

@@ -102,6 +102,16 @@ body {
   word-break: break-word;
 }
 
+/* === 投稿画像 === */
+.post-image-container {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 /* 画像1枚用 */
 .post-image-container.single img {
   width: 100%;
@@ -109,7 +119,6 @@ body {
   object-fit: cover;
 }
 
-/* 画像2枚用 */
 .post-image-container.double img {
   width: calc(50% - 4px);
   border-radius: 12px;

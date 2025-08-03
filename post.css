@@ -234,15 +234,16 @@ body {
 /* セレクトボックス */
 .comment-post select {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: normal; /* 改行可 */
+  word-break: break-word; /* 長すぎる語を分割 */
+  line-height: 1.4;
   padding: 0.6rem;
+  border-radius: 8px;
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 0.75rem;
-  background-color: #fff;
-  white-space: normal;          /* ←★改行を許可 */
-  word-break: break-word;       /* ←★長文対応 */
-  line-height: 1.4;
+  background: #fff;
 }
 
 /* 投稿ボタン */

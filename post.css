@@ -204,15 +204,22 @@ body {
 
 /* コメント選択エリア全体 */
 .comment-post {
-  margin-top: 2rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.6);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(6px);
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 1rem;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.08);
+  z-index: 998;
+}
+
+/* 中身のレイアウト調整 */
+.comment-post label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 /* セレクトボックス */
@@ -222,14 +229,17 @@ body {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  box-sizing: border-box;
+  margin-bottom: 0.75rem;
   background-color: #fff;
+  white-space: normal;          /* ←★改行を許可 */
+  word-break: break-word;       /* ←★長文対応 */
+  line-height: 1.4;
 }
 
 /* 投稿ボタン */
 .comment-post button {
+  display: block;
+  margin-left: auto;            /* ←★右寄せ */
   padding: 0.6rem 1rem;
   font-size: 1rem;
   background-color: #6c5c9d;

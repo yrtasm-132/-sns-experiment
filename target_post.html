@@ -539,12 +539,20 @@
     </div>
   </div>
 </div>
-  <div class="fixed-input">
-    <div>
-     <input type="text" placeholder="コメントを入力..." />
-      <button>投稿</button>
-    </div>
-  </div>
+
+<!-- コメント入力エリア -->
+<div class="comment-post">
+  <label for="comment-choice">コメント選択：</label>
+  <select id="comment-choice">
+    <option value="">コメントを選んでください</option>
+    <option value="コメント①">普段からぼーっとしてるタイプなんだろうな、そういう人って事故起こしやすいよ。</option>
+    <option value="コメント②">スマホ見ながら歩いてたんじゃないの？そういう人多いし。</option>
+    <option value="コメント③">入院って言っても念のためでしょ？軽症じゃないの？</option>
+  </select>
+  <button id="post-comment-btn">
+    投稿 <i class="fas fa-paper-plane"></i>
+  </button>
+</div>
 </div>
 </body>
 </html>

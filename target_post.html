@@ -556,3 +556,43 @@
 </div>
 </body>
 </html>
+
+
+
+<!-- コメントへのアクション -->
+<script>
+  // いいねボタン
+  document.querySelectorAll('.like-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const countEl = btn.querySelector('.count');
+      let count = parseInt(countEl.textContent, 10);
+
+      const isActive = btn.classList.toggle('active');
+      countEl.textContent = isActive ? count + 1 : count - 1;
+
+      // 色変更（CSSのactiveと合わせるならこれでOK）
+      if (isActive) {
+        btn.classList.add('orange');
+      } else {
+        btn.classList.remove('orange');
+      }
+    });
+  });
+
+  // シェアボタン
+  document.querySelectorAll('.share-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const countEl = btn.querySelector('.count');
+      let count = parseInt(countEl.textContent, 10);
+
+      const isActive = btn.classList.toggle('active');
+      countEl.textContent = isActive ? count + 1 : count - 1;
+
+      if (isActive) {
+        btn.classList.add('pink');
+      } else {
+        btn.classList.remove('pink');
+      }
+    });
+  });
+</script>

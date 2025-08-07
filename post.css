@@ -202,6 +202,16 @@ body {
   white-space: pre-wrap; /* 複数行コメントにも対応 */
 }
 
+/* アクション */
+.like-btn.orange {
+  color: orange;
+}
+
+.share-btn.pink {
+  color: hotpink;
+}
+
+
 /* コメント選択エリア全体 */
 .comment-post {
   position: fixed;

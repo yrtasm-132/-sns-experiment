@@ -297,3 +297,56 @@
 </div>
 </body>
 </html>
+<!-- コメント入力エリア -->
+<div class="comment-post">
+  <label for="comment-choice">コメント選択：</label>
+  <select id="comment-choice">
+    <option value="">コメントを選んでください</option>
+    <option value="コメント①">焦がしバターと塩あんの組み合わせ、想像しただけでも…🤤これは並んでも食べたい！</option>
+    <option value="コメント②">おいしそうだけど、開店30分で売り切れって…普通に買える日はあるのかな？</option>
+    <option value="コメント③">今度早起きしてチャレンジしよう！</option>
+  </select>
+  <button id="post-comment-btn">
+    投稿 <i class="fas fa-paper-plane"></i>
+  </button>
+</div>
+</div>
+</body>
+</html>
+<!-- コメントへのアクション -->
+<script>
+  // いいねボタン
+  document.querySelectorAll('.like-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const countEl = btn.querySelector('.count');
+      let count = parseInt(countEl.textContent, 10);
+
+      const isActive = btn.classList.toggle('active');
+      countEl.textContent = isActive ? count + 1 : count - 1;
+
+      // 色変更（CSSのactiveと合わせるならこれでOK）
+      if (isActive) {
+        btn.classList.add('orange');
+      } else {
+        btn.classList.remove('orange');
+      }
+    });
+  });
+
+// シェアボタン
+document.querySelectorAll('.share-btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const countEl = btn.querySelector('.count');
+    let count = parseInt(countEl.textContent, 10);
+
+    const isActive = btn.classList.toggle('active');
+    countEl.textContent = isActive ? count + 1 : count - 1;
+
+    if (isActive) {
+      btn.classList.add('pink');
+    } else {
+      btn.classList.remove('pink');
+    }
+  });
+});
+</script>

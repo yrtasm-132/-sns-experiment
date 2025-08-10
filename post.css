@@ -73,7 +73,7 @@ body {
   margin: 0 auto;
   margin-top: 3.5em;
   padding: 1rem;
-  padding-bottom: 140px;
+  padding-bottom: 180px;
 }
 
 .post {
@@ -305,7 +305,7 @@ html {
     max-width: 100%;
     margin-top: 3.5em;
     padding: 1rem;
-    padding-bottom: 9rem; 
+    padding-bottom: 12rem; 
   }
 
     .message {

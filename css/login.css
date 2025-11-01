@@ -1,0 +1,78 @@
+.login-container {
+  max-width: 500px;
+  width: 90%;
+  margin: 120px auto 0;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.login-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.login-sub {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  box-sizing: border-box;
+}
+
+.login-btn {
+  background-color: #c08ae0;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #f49bc5;
+}
+
+.login-btn i {
+  margin-left: 0.5em;
+}
+
+/* モバイル対応 */
+@media screen and (max-width: 768px) {
+  .login-container {
+    width: 90%;
+    padding: 1.2rem;
+    margin: 80px auto 0;
+  }
+
+  .login-title {
+    font-size: 1.4rem;
+  }
+
+  .login-sub {
+    font-size: 0.9rem;
+  }
+
+  input[type="text"] {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+
+  .login-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
